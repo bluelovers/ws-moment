@@ -1,6 +1,6 @@
 {
   "name": "@lazy-moment/in-day",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "",
   "keywords": [
     "moment",
@@ -30,8 +30,6 @@
     "ncu": "yarn-tool ncu -u",
     "sort-package-json": "yarn-tool sort"
   },
-  "dependencies": {},
-  "devDependencies": {},
   "peerDependencies": {
     "moment": "*"
   },

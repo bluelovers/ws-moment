@@ -1,6 +1,6 @@
 {
   "name": "@lazy-moment/week-of-month",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "",
   "keywords": [
     "moment",
@@ -30,10 +30,9 @@
     "sort-package-json": "yarn-tool sort"
   },
   "dependencies": {
-    "@lazy-moment/in-day": "^1.0.0",
-    "@lazy-moment/moment-range": "^1.0.0"
+    "@lazy-moment/in-day": "^1.0.1",
+    "@lazy-moment/moment-range": "^1.0.1"
   },
-  "devDependencies": {},
   "peerDependencies": {
     "moment": "*"
   },

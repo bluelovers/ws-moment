@@ -1,6 +1,6 @@
 {
   "name": "@lazy-moment/moment-range",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "",
   "keywords": [
     "moment",
@@ -33,7 +33,6 @@
   "dependencies": {
     "moment-range": "^4.0.2"
   },
-  "devDependencies": {},
   "peerDependencies": {
     "moment": "*"
   },
