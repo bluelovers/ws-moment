@@ -2,7 +2,20 @@
   "name": "ws-moment",
   "version": "1.0.0",
   "private": true,
-  "keywords": [],
+  "keywords": [
+    "moment",
+    "date"
+  ],
+  "homepage": "https://github.com/bluelovers/ws-moment#readme",
+  "bugs": {
+    "url": "https://github.com/bluelovers/ws-moment/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/bluelovers/ws-moment.git"
+  },
+  "license": "MIT",
+  "author": "bluelovers <codelovers@users.sourceforge.net>",
   "workspaces": [
     "packages/*",
     "packages/@lazy-moment/*"

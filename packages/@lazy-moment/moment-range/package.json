@@ -1,12 +1,13 @@
 {
-  "name": "@lazy-moment/in-day",
+  "name": "@lazy-moment/moment-range",
   "version": "1.0.0",
   "description": "",
   "keywords": [
     "moment",
+    "range",
     "date"
   ],
-  "homepage": "https://github.com/bluelovers/ws-moment/tree/master/packages/@lazy-moment/in-day#readme",
+  "homepage": "https://github.com/bluelovers/ws-moment/tree/master/packages/@lazy-moment/moment-range#readme",
   "bugs": {
     "url": "https://github.com/bluelovers/ws-moment/issues"
   },
@@ -24,13 +25,14 @@
     "test:mocha": "ynpx --quiet -p ts-node -p mocha mocha -- --require ts-node/register \"!(node_modules)/**/*.{test,spec}.{ts,tsx}\"",
     "preversion": "yarn run test",
     "prepublishOnly": "echo prepublishOnly",
-    "prepublishOnly_": "yarn run test",
     "prepublishOnly:check-bin": "ynpx --quiet @yarn-tool/check-pkg-bin",
     "prepublishOnly:update": "yarn run ncu && yarn run sort-package-json",
     "ncu": "yarn-tool ncu -u",
     "sort-package-json": "yarn-tool sort"
   },
-  "dependencies": {},
+  "dependencies": {
+    "moment-range": "^4.0.2"
+  },
   "devDependencies": {},
   "peerDependencies": {
     "moment": "*"

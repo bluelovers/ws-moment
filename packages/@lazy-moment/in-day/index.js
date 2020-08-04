@@ -3,23 +3,11 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.firstEndOfMonth = exports.lnMoment = exports.lnMomentYear = exports.lnMomentDay = exports.lnMomentMonth = void 0;
+exports.firstEndOfMonth = exports.lnMomentYear = exports.lnMomentDay = exports.lnMomentMonth = exports.lnMoment = void 0;
 const moment_1 = __importDefault(require("moment"));
-function lnMomentMonth(m) {
-    return lnMoment(m, 'month');
-}
-exports.lnMomentMonth = lnMomentMonth;
-function lnMomentDay(m) {
-    return lnMoment(m, 'day');
-}
-exports.lnMomentDay = lnMomentDay;
-function lnMomentYear(m) {
-    return lnMoment(m, 'year');
-}
-exports.lnMomentYear = lnMomentYear;
-function lnMoment(m, unit) {
-    const baseMoment = moment_1.default(m);
-    const lastMoment = baseMoment
+function lnMoment(m, unit, momentStatic = moment_1.default) {
+    const baseMoment = momentStatic(m);
+    const prevMoment = baseMoment
         .clone()
         .add(-1, unit);
     const nextMoment = baseMoment
@@ -28,13 +16,25 @@ function lnMoment(m, unit) {
     return {
         input: m,
         baseMoment,
-        lastMoment,
+        prevMoment,
         nextMoment,
     };
 }
 exports.lnMoment = lnMoment;
-function firstEndOfMonth(m) {
-    const baseMoment = moment_1.default(m);
+function lnMomentMonth(m, momentStatic) {
+    return lnMoment(m, 'month', momentStatic);
+}
+exports.lnMomentMonth = lnMomentMonth;
+function lnMomentDay(m, momentStatic) {
+    return lnMoment(m, 'day', momentStatic);
+}
+exports.lnMomentDay = lnMomentDay;
+function lnMomentYear(m, momentStatic) {
+    return lnMoment(m, 'year', momentStatic);
+}
+exports.lnMomentYear = lnMomentYear;
+function firstEndOfMonth(m, momentStatic = moment_1.default) {
+    const baseMoment = momentStatic(m);
     const firstDayOfMonth = baseMoment.clone().startOf('month');
     const endDayOfMonth = baseMoment.clone().endOf('month');
     return {
@@ -45,4 +45,5 @@ function firstEndOfMonth(m) {
     };
 }
 exports.firstEndOfMonth = firstEndOfMonth;
+exports.default = lnMoment;
 //# sourceMappingURL=index.js.map

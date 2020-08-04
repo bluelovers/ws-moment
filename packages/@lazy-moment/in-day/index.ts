@@ -1,25 +1,27 @@
-import moment, { MomentInput, DurationInputArg2 } from 'moment';
+import moment, { Moment, MomentInput, DurationInputArg2 } from 'moment';
+type IMomentStatic = typeof moment
 
-export function lnMomentMonth<M extends MomentInput>(m: M)
+export interface IReturnTypelnMoment<M extends MomentInput = MomentInput>
 {
-	return lnMoment(m, 'month');
+	input: M;
+	baseMoment: Moment;
+	prevMoment: Moment;
+	nextMoment: Moment;
 }
 
-export function lnMomentDay<M extends MomentInput>(m: M)
+export interface IReturnTypeFirstEndOfMonth<M extends MomentInput = MomentInput>
 {
-	return lnMoment(m, 'day');
+	input: M;
+	baseMoment: Moment;
+	firstDayOfMonth: Moment;
+	endDayOfMonth: Moment;
 }
 
-export function lnMomentYear<M extends MomentInput>(m: M)
+export function lnMoment<M extends MomentInput>(m: M, unit: DurationInputArg2, momentStatic: IMomentStatic = moment): IReturnTypelnMoment<M>
 {
-	return lnMoment(m, 'year');
-}
+	const baseMoment = momentStatic(m);
 
-export function lnMoment<M extends MomentInput>(m: M, unit: DurationInputArg2)
-{
-	const baseMoment = moment(m);
-
-	const lastMoment = baseMoment
+	const prevMoment = baseMoment
 		.clone()
 		.add(-1, unit)
 	;
@@ -31,14 +33,29 @@ export function lnMoment<M extends MomentInput>(m: M, unit: DurationInputArg2)
 	return {
 		input: m,
 		baseMoment,
-		lastMoment,
+		prevMoment,
 		nextMoment,
 	}
 }
 
-export function firstEndOfMonth<M extends MomentInput>(m: M)
+export function lnMomentMonth<M extends MomentInput>(m: M, momentStatic?: IMomentStatic)
 {
-	const baseMoment = moment(m);
+	return lnMoment(m, 'month', momentStatic);
+}
+
+export function lnMomentDay<M extends MomentInput>(m: M, momentStatic?: IMomentStatic)
+{
+	return lnMoment(m, 'day', momentStatic);
+}
+
+export function lnMomentYear<M extends MomentInput>(m: M, momentStatic?: IMomentStatic)
+{
+	return lnMoment(m, 'year', momentStatic);
+}
+
+export function firstEndOfMonth<M extends MomentInput>(m: M, momentStatic: IMomentStatic = moment): IReturnTypeFirstEndOfMonth<M>
+{
+	const baseMoment = momentStatic(m);
 
 	const firstDayOfMonth = baseMoment.clone().startOf('month');
 	const endDayOfMonth = baseMoment.clone().endOf('month');
@@ -50,3 +67,5 @@ export function firstEndOfMonth<M extends MomentInput>(m: M)
 		endDayOfMonth,
 	}
 }
+
+export default lnMoment
