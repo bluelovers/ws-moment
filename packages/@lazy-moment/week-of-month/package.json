@@ -1,6 +1,6 @@
 {
   "name": "@lazy-moment/week-of-month",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "",
   "keywords": [
     "moment",
@@ -31,7 +31,7 @@
   },
   "dependencies": {
     "@lazy-moment/in-day": "^1.0.1",
-    "@lazy-moment/moment-range": "^1.0.1"
+    "@lazy-moment/moment-range": "^1.0.2"
   },
   "peerDependencies": {
     "moment": "*"
