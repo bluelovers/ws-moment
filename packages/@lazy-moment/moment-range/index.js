@@ -11,7 +11,7 @@ function wrapMoment(moment) {
     // @ts-ignore
     let t1 = typeof moment.isRange === 'function';
     // @ts-ignore
-    let t2 = typeof moment.within === 'function';
+    let t2 = typeof moment.fn.within === 'function';
     if (t1 && !t2 || !t1 && t2) {
         throw new TypeError(`current moment already exists one of isRange or within method`);
     }
@@ -23,7 +23,7 @@ function wrapMoment(moment) {
 exports.wrapMoment = wrapMoment;
 function isMomentRange(moment) {
     // @ts-ignore
-    return typeof moment.isRange === 'function' && typeof moment.within === 'function';
+    return typeof moment.isRange === 'function' && typeof moment.fn.within === 'function';
 }
 exports.isMomentRange = isMomentRange;
 function getMomentRange(moment) {

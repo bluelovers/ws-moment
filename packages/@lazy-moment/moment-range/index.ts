@@ -13,7 +13,7 @@ export function wrapMoment(moment: IMomentStatic): IMomentRangeStatic
 	// @ts-ignore
 	let t1 = typeof moment.isRange === 'function';
 	// @ts-ignore
-	let t2 = typeof moment.within === 'function';
+	let t2 = typeof moment.fn.within === 'function';
 
 	if (t1 && !t2 || !t1 && t2)
 	{
@@ -30,7 +30,7 @@ export function wrapMoment(moment: IMomentStatic): IMomentRangeStatic
 export function isMomentRange(moment?: IMomentStatic): moment is IMomentRangeStatic
 {
 	// @ts-ignore
-	return typeof moment.isRange === 'function' && typeof moment.within === 'function'
+	return typeof moment.isRange === 'function' && typeof moment.fn.within === 'function'
 }
 
 export function getMomentRange(moment?: IMomentStatic)
