@@ -43,7 +43,10 @@
   },
   "devDependencies": {
     "@bluelovers/tsconfig": "^1.0.20",
-    "@types/node": "*"
+    "@types/jest": "^26.0.20",
+    "@types/node": "*",
+    "jest": "^26.6.3",
+    "ts-jest": "^26.5.1"
   },
   "peerDependencies": {
     "@bluelovers/conventional-changelog-bluelovers": "*",
