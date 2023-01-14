@@ -3,8 +3,15 @@
   "version": "1.0.0",
   "private": true,
   "keywords": [
+    "dayjs",
+    "date",
+    "range",
+    "timezone",
+    "time",
+    "immutable",
     "moment",
-    "date"
+    "date-range",
+    "date-util"
   ],
   "homepage": "https://github.com/bluelovers/ws-moment#readme",
   "bugs": {
@@ -74,6 +81,7 @@
   },
   "resolutions": {},
   "dependencies": {
+    "dayjs": "^1.11.7",
     "moment": "^2.29.4"
   },
   "devDependencies": {
