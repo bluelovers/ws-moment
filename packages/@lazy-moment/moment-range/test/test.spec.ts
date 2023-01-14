@@ -1,5 +1,5 @@
 import MomentStatic, { Moment, MomentInput } from 'moment';
-import getMomentRange, { wrapMoment } from '../index';
+import getMomentRange, { wrapMoment } from '../src/index';
 
 describe(`describe`, () =>
 {

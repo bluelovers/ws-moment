@@ -1,6 +1,6 @@
 import _moment, { Moment, MomentInput, LocaleSpecifier } from 'moment';
-import getMomentRange, { IMomentRangeStatic, IMomentStatic, MomentRange, DateRange } from '@lazy-moment/moment-range/index';
-import { firstEndOfMonth } from '@lazy-moment/in-day/index';
+import getMomentRange, { IMomentRangeStatic, IMomentStatic, MomentRange, DateRange } from '@lazy-moment/moment-range';
+import { firstEndOfMonth } from '@lazy-moment/in-day';
 
 export interface IReturnTypeWeeksOfMonth
 {
@@ -131,4 +131,18 @@ export function getWeekDayNames(locale: LocaleSpecifier = 'zh-tw', momentStatic:
 				.format(`dddd`)
 		})
 		;
+}
+
+export default weeksOfMonth
+
+// @ts-ignore
+if (process.env.TSDX_FORMAT !== 'esm')
+{
+	Object.defineProperty(weeksOfMonth, "__esModule", { value: true });
+
+	Object.defineProperty(weeksOfMonth, 'weeksOfMonth', { value: weeksOfMonth });
+	Object.defineProperty(weeksOfMonth, 'default', { value: weeksOfMonth });
+
+	Object.defineProperty(weeksOfMonth, 'weeksMomentRangeReport', { value: weeksMomentRangeReport });
+	Object.defineProperty(weeksOfMonth, 'getWeekDayNames', { value: getWeekDayNames });
 }

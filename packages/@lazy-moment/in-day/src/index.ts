@@ -69,3 +69,17 @@ export function firstEndOfMonth<M extends MomentInput>(m: M, momentStatic: IMome
 }
 
 export default lnMoment
+
+// @ts-ignore
+if (process.env.TSDX_FORMAT !== 'esm')
+{
+	Object.defineProperty(lnMoment, "__esModule", { value: true });
+
+	Object.defineProperty(lnMoment, 'lnMoment', { value: lnMoment });
+	Object.defineProperty(lnMoment, 'default', { value: lnMoment });
+
+	Object.defineProperty(lnMoment, 'lnMomentMonth', { value: lnMomentMonth });
+	Object.defineProperty(lnMoment, 'lnMomentDay', { value: lnMomentDay });
+	Object.defineProperty(lnMoment, 'lnMomentYear', { value: lnMomentYear });
+	Object.defineProperty(lnMoment, 'firstEndOfMonth', { value: firstEndOfMonth });
+}

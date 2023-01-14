@@ -39,3 +39,15 @@ export function getMomentRange(moment?: IMomentStatic)
 }
 
 export default getMomentRange
+
+// @ts-ignore
+if (process.env.TSDX_FORMAT !== 'esm')
+{
+	Object.defineProperty(getMomentRange, "__esModule", { value: true });
+
+	Object.defineProperty(getMomentRange, 'getMomentRange', { value: getMomentRange });
+	Object.defineProperty(getMomentRange, 'default', { value: getMomentRange });
+
+	Object.defineProperty(getMomentRange, 'isMomentRange', { value: isMomentRange });
+	Object.defineProperty(getMomentRange, 'wrapMoment', { value: wrapMoment });
+}

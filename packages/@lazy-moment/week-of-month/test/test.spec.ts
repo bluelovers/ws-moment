@@ -1,4 +1,4 @@
-import { weeksOfMonth } from '../index';
+import { weeksOfMonth } from '../src/index';
 
 describe(`describe`, () =>
 {
