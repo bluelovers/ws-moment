@@ -6,14 +6,14 @@ function _isUnsafeOffsetDateString(e) {
   return /(?:\dZ|\+\d{2}:?\d{2})$/.test(e);
 }
 
-function tzDayjsSafeParse(t, a) {
+function tzDayjsSafeParse(a, t) {
   var s;
-  return "string" == typeof t && _isUnsafeOffsetDateString(t) && (t = e.utc(t)), e.tz(null !== (s = t) && void 0 !== s ? s : void 0, null != a ? a : void 0);
+  return "string" == typeof a && _isUnsafeOffsetDateString(a) && (a = e.utc(a)), e.tz(null !== (s = a) && void 0 !== s ? s : void 0, null != t ? t : void 0);
 }
 
 Object.defineProperty(tzDayjsSafeParse, "__esModule", {
   value: !0
-}), Object.defineProperty(tzDayjsSafeParse, "x", {
+}), Object.defineProperty(tzDayjsSafeParse, "tzDayjsSafeParse", {
   value: tzDayjsSafeParse
 }), Object.defineProperty(tzDayjsSafeParse, "default", {
   value: tzDayjsSafeParse

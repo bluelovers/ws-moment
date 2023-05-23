@@ -16,7 +16,7 @@ function tzDayjsSafeParse(date, timezone) {
   Object.defineProperty(tzDayjsSafeParse, "__esModule", {
     value: true
   });
-  Object.defineProperty(tzDayjsSafeParse, 'x', {
+  Object.defineProperty(tzDayjsSafeParse, 'tzDayjsSafeParse', {
     value: tzDayjsSafeParse
   });
   Object.defineProperty(tzDayjsSafeParse, 'default', {

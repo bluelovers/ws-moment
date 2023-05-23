@@ -41,7 +41,7 @@ if (process.env.TSDX_FORMAT !== 'esm')
 {
 	Object.defineProperty(tzDayjsSafeParse, "__esModule", { value: true });
 
-	Object.defineProperty(tzDayjsSafeParse, 'x', { value: tzDayjsSafeParse });
+	Object.defineProperty(tzDayjsSafeParse, 'tzDayjsSafeParse', { value: tzDayjsSafeParse });
 	Object.defineProperty(tzDayjsSafeParse, 'default', { value: tzDayjsSafeParse });
 
 	Object.defineProperty(tzDayjsSafeParse, '_isUnsafeOffsetDateString', { value: _isUnsafeOffsetDateString });
