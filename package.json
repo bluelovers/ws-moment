@@ -82,15 +82,15 @@
   "resolutions": {},
   "dependencies": {
     "dayjs": "^1.11.10",
-    "moment": "^2.29.4"
+    "moment": "^2.30.1"
   },
   "devDependencies": {
     "@bluelovers/tsconfig": "^1.0.34",
-    "@types/jest": "^29.5.10",
+    "@types/jest": "^29.5.12",
     "@types/node": "*",
     "@yarn-tool/ws-find-up-paths": "*",
     "jest": "^29.7.0",
-    "ts-jest": "^29.1.1"
+    "ts-jest": "^29.1.2"
   },
   "peerDependencies": {
     "@bluelovers/conventional-changelog-bluelovers": "*",
