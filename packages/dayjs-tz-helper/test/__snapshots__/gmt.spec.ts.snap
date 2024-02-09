@@ -1,0 +1,23 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`GMT Fri, 31 Mar 2023 04:00:00 1`] = `
+{
+  "actual": "2023-03-31T04:00:00.000Z",
+  "dayjs": "2023-03-30T20:00:00.000Z",
+  "dayjs:tz": "2023-03-30T20:00:00.000Z",
+  "dayjs:utc": "2023-03-30T20:00:00.000Z",
+  "input": "Fri, 31 Mar 2023 04:00:00",
+  "toISOString": "2023-03-31T04:00:00.000Z",
+}
+`;
+
+exports[`GMT Fri, 31 Mar 2023 04:00:00 GMT 1`] = `
+{
+  "actual": "2023-03-31T04:00:00.000Z",
+  "dayjs": "2023-03-31T04:00:00.000Z",
+  "dayjs:tz": "2023-03-31T04:00:00.000Z",
+  "dayjs:utc": "2023-03-31T04:00:00.000Z",
+  "input": "Fri, 31 Mar 2023 04:00:00 GMT",
+  "toISOString": "2023-03-31T04:00:00.000Z",
+}
+`;
