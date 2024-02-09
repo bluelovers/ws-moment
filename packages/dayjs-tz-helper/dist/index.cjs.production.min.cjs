@@ -1,6 +1,6 @@
 "use strict";
 
-var e = require("dayjs");
+var e = require("dayjs"), t = require("dayjs/plugin/utc"), a = require("dayjs/plugin/timezone");
 
 function _isUnsafeOffsetDateString(e) {
   return /(?:\dZ|\+\d{2}:?\d{2})$/.test(e);
@@ -16,7 +16,7 @@ function tzDayjsSafeParse(t, a) {
   e.tz(null !== (s = t) && void 0 !== s ? s : void 0, null != a ? a : void 0);
 }
 
-Object.defineProperty(tzDayjsSafeParse, "__esModule", {
+e.extend(t), e.extend(a), Object.defineProperty(tzDayjsSafeParse, "__esModule", {
   value: !0
 }), Object.defineProperty(tzDayjsSafeParse, "tzDayjsSafeParse", {
   value: tzDayjsSafeParse
