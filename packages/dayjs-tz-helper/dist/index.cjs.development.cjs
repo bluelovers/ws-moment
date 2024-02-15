@@ -20,22 +20,45 @@ function _isUnsafeUTCDateString(date) {
  * tzDayjsSafeParse('2023-03-31T04:00:00+00:00')
  * // => 2023-03-31T04:00:00Z
  * // => 1680235200
+ * @example
+ * tzDayjsSafeParse('Fri, 31 Mar 2023 04:00:00', 'GMT')
  *
  * @see https://github.com/iamkun/dayjs/issues/2300
  * @see https://github.com/iamkun/dayjs/issues/2303
+ *
+ * @see https://day.js.org/docs/en/timezone/timezone
+ * @see https://en.wikipedia.org/wiki/List_of_tz_database_time_zones
  */
-function tzDayjsSafeParse(date, timezone) {
-  var _date;
-  if (typeof date === 'string') {
-    if (_isUnsafeOffsetDateString(date)) {
-      date = dayjs.utc(date);
-    } else if (timezone === 'GMT' && !_isUnsafeUTCDateString(date)) {
-      date += ' GMT';
-    } else {
-      date = dayjs(date);
-    }
+function tzDayjsSafeParse(dateOrMilliseconds, timezone) {
+  var _dateOrMilliseconds, _timezone$timezone;
+  if (timezone === null || typeof timezone !== 'object') {
+    timezone = {
+      timezone
+    };
   }
-  return dayjs.tz((_date = date) !== null && _date !== void 0 ? _date : void 0, timezone !== null && timezone !== void 0 ? timezone : void 0);
+  if (typeof dateOrMilliseconds === 'string') {
+    if (_isUnsafeOffsetDateString(dateOrMilliseconds)) {
+      dateOrMilliseconds = dayjs.utc(dateOrMilliseconds);
+    } else if (timezone.timezone === 'GMT' && !_isUnsafeUTCDateString(dateOrMilliseconds)) {
+      dateOrMilliseconds += ' GMT';
+    } else {
+      dateOrMilliseconds = dayjs(dateOrMilliseconds);
+    }
+  } else if (typeof dateOrMilliseconds === 'number') {
+    if (typeof timezone.minValidTimestamp === 'number') {
+      dateOrMilliseconds = Math.max(dateOrMilliseconds, timezone.minValidTimestamp);
+    } else if (timezone.minValidTimestamp) {
+      dateOrMilliseconds = Math.max(dateOrMilliseconds, 0);
+    }
+    dateOrMilliseconds = (timezone.isUnixTimestampSeconds ? dayjs.unix : dayjs)(dateOrMilliseconds);
+  }
+  return dayjs.tz((_dateOrMilliseconds = dateOrMilliseconds) !== null && _dateOrMilliseconds !== void 0 ? _dateOrMilliseconds : void 0, (_timezone$timezone = timezone.timezone) !== null && _timezone$timezone !== void 0 ? _timezone$timezone : void 0);
+}
+function secondsToMilliseconds(timestamp) {
+  return timestamp * 1000;
+}
+function millisecondsToSeconds(timestamp) {
+  return timestamp / 1000;
 }
 // @ts-ignore
 {
@@ -53,6 +76,12 @@ function tzDayjsSafeParse(date, timezone) {
   });
   Object.defineProperty(tzDayjsSafeParse, '_isUnsafeUTCDateString', {
     value: _isUnsafeUTCDateString
+  });
+  Object.defineProperty(tzDayjsSafeParse, 'secondsToMilliseconds', {
+    value: secondsToMilliseconds
+  });
+  Object.defineProperty(tzDayjsSafeParse, 'millisecondsToSeconds', {
+    value: millisecondsToSeconds
   });
 }
 
