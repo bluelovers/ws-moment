@@ -3,6 +3,21 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.0.5](https://github.com/bluelovers/ws-moment/compare/dayjs-tz-helper@1.0.4...dayjs-tz-helper@1.0.5) (2024-02-15)
+
+
+
+### ✨　Features
+
+* OptionsTzDayjsSafeParse ([a6d4f07](https://github.com/bluelovers/ws-moment/commit/a6d4f078ecc15ee4cf7a4e4c06e31121bd9155c5))
+
+
+### 🔖　Miscellaneous
+
+* . ([3bbb6d8](https://github.com/bluelovers/ws-moment/commit/3bbb6d8d53f664ab5bd1b79a9ebe7591dad6fabc))
+
+
+
 ## [1.0.4](https://github.com/bluelovers/ws-moment/compare/dayjs-tz-helper@1.0.3...dayjs-tz-helper@1.0.4) (2024-02-09)
 
 
