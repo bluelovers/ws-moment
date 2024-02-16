@@ -3,6 +3,7 @@
 var dayjs = require('dayjs');
 var utc = require('dayjs/plugin/utc');
 var timezone = require('dayjs/plugin/timezone');
+var parseNumberString = require('@lazy-num/parse-number-string');
 
 dayjs.extend(utc);
 dayjs.extend(timezone);
@@ -36,7 +37,15 @@ function tzDayjsSafeParse(dateOrMilliseconds, timezone) {
       timezone
     };
   }
-  if (typeof dateOrMilliseconds === 'string') {
+  if (typeof dateOrMilliseconds === 'number' || parseNumberString.isFloatString(dateOrMilliseconds)) {
+    dateOrMilliseconds = Number(dateOrMilliseconds);
+    if (typeof timezone.minValidTimestamp === 'number') {
+      dateOrMilliseconds = Math.max(dateOrMilliseconds, timezone.minValidTimestamp);
+    } else if (timezone.minValidTimestamp) {
+      dateOrMilliseconds = Math.max(dateOrMilliseconds, 0);
+    }
+    dateOrMilliseconds = (timezone.isUnixTimestampSeconds ? dayjs.unix : dayjs)(dateOrMilliseconds);
+  } else if (typeof dateOrMilliseconds === 'string') {
     if (_isUnsafeOffsetDateString(dateOrMilliseconds)) {
       dateOrMilliseconds = dayjs.utc(dateOrMilliseconds);
     } else if (timezone.timezone === 'GMT' && !_isUnsafeUTCDateString(dateOrMilliseconds)) {
@@ -44,13 +53,6 @@ function tzDayjsSafeParse(dateOrMilliseconds, timezone) {
     } else {
       dateOrMilliseconds = dayjs(dateOrMilliseconds);
     }
-  } else if (typeof dateOrMilliseconds === 'number') {
-    if (typeof timezone.minValidTimestamp === 'number') {
-      dateOrMilliseconds = Math.max(dateOrMilliseconds, timezone.minValidTimestamp);
-    } else if (timezone.minValidTimestamp) {
-      dateOrMilliseconds = Math.max(dateOrMilliseconds, 0);
-    }
-    dateOrMilliseconds = (timezone.isUnixTimestampSeconds ? dayjs.unix : dayjs)(dateOrMilliseconds);
   }
   return dayjs.tz((_dateOrMilliseconds = dateOrMilliseconds) !== null && _dateOrMilliseconds !== void 0 ? _dateOrMilliseconds : void 0, (_timezone$timezone = timezone.timezone) !== null && _timezone$timezone !== void 0 ? _timezone$timezone : void 0);
 }

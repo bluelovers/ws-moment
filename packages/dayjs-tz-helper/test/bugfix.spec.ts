@@ -61,6 +61,8 @@ describe(`1970-01-01T00:00:00.000Z`, () =>
 	test.each([
 		0,
 		-1,
+		'0',
+		'-1',
 	])('%s', (input) =>
 	{
 		let actual = tzDayjsSafeParse(input);

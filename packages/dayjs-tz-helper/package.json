@@ -84,5 +84,8 @@
     "tsc:esm": "tsc -p tsconfig.esm.json",
     "tsc:showConfig": "ynpx get-current-tsconfig -p"
   },
+  "dependencies": {
+    "@lazy-num/parse-number-string": "^1.0.1"
+  },
   "packageManager": "yarn@1.22.19"
 }

@@ -1,6 +1,6 @@
 "use strict";
 
-var e = require("dayjs"), t = require("dayjs/plugin/utc"), a = require("dayjs/plugin/timezone");
+var e = require("dayjs"), t = require("dayjs/plugin/utc"), a = require("dayjs/plugin/timezone"), s = require("@lazy-num/parse-number-string");
 
 function _isUnsafeOffsetDateString(e) {
   return /(?:\dZ|\+\d{2}:?\d{2})$/.test(e);
@@ -11,11 +11,12 @@ function _isUnsafeUTCDateString(e) {
 }
 
 function tzDayjsSafeParse(t, a) {
-  var s, n;
+  var n, i;
   return null !== a && "object" == typeof a || (a = {
     timezone: a
-  }), "string" == typeof t ? _isUnsafeOffsetDateString(t) ? t = e.utc(t) : "GMT" !== a.timezone || _isUnsafeUTCDateString(t) ? t = e(t) : t += " GMT" : "number" == typeof t && ("number" == typeof a.minValidTimestamp ? t = Math.max(t, a.minValidTimestamp) : a.minValidTimestamp && (t = Math.max(t, 0)), 
-  t = (a.isUnixTimestampSeconds ? e.unix : e)(t)), e.tz(null !== (s = t) && void 0 !== s ? s : void 0, null !== (n = a.timezone) && void 0 !== n ? n : void 0);
+  }), "number" == typeof t || s.isFloatString(t) ? (t = Number(t), "number" == typeof a.minValidTimestamp ? t = Math.max(t, a.minValidTimestamp) : a.minValidTimestamp && (t = Math.max(t, 0)), 
+  t = (a.isUnixTimestampSeconds ? e.unix : e)(t)) : "string" == typeof t && (_isUnsafeOffsetDateString(t) ? t = e.utc(t) : "GMT" !== a.timezone || _isUnsafeUTCDateString(t) ? t = e(t) : t += " GMT"), 
+  e.tz(null !== (n = t) && void 0 !== n ? n : void 0, null !== (i = a.timezone) && void 0 !== i ? i : void 0);
 }
 
 e.extend(t), e.extend(a), Object.defineProperty(tzDayjsSafeParse, "__esModule", {

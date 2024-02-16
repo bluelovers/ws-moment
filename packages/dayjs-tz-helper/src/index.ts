@@ -1,6 +1,7 @@
 import dayjs, { type ConfigType } from 'dayjs';
 import utc from 'dayjs/plugin/utc';
 import timezone from 'dayjs/plugin/timezone';
+import { isFloatString } from '@lazy-num/parse-number-string';
 
 dayjs.extend(utc);
 dayjs.extend(timezone);
@@ -81,7 +82,22 @@ export function tzDayjsSafeParse(dateOrMilliseconds?: ConfigType, timezone?: ITi
 		} as IOptionsTzDayjsSafeParse
 	}
 
-	if (typeof dateOrMilliseconds === 'string')
+	if (typeof dateOrMilliseconds === 'number' || isFloatString(dateOrMilliseconds))
+	{
+		dateOrMilliseconds = Number(dateOrMilliseconds);
+
+		if (typeof timezone.minValidTimestamp === 'number')
+		{
+			dateOrMilliseconds = Math.max(dateOrMilliseconds, timezone.minValidTimestamp);
+		}
+		else if (timezone.minValidTimestamp)
+		{
+			dateOrMilliseconds = Math.max(dateOrMilliseconds, 0);
+		}
+
+		dateOrMilliseconds = (timezone.isUnixTimestampSeconds ? dayjs.unix : dayjs)(dateOrMilliseconds);
+	}
+	else if (typeof dateOrMilliseconds === 'string')
 	{
 		if (_isUnsafeOffsetDateString(dateOrMilliseconds))
 		{
@@ -99,21 +115,8 @@ export function tzDayjsSafeParse(dateOrMilliseconds?: ConfigType, timezone?: ITi
 			dateOrMilliseconds = dayjs(dateOrMilliseconds);
 		}
 	}
-	else if (typeof dateOrMilliseconds === 'number')
-	{
-		if (typeof timezone.minValidTimestamp === 'number')
-		{
-			dateOrMilliseconds = Math.max(dateOrMilliseconds, timezone.minValidTimestamp);
-		}
-		else if (timezone.minValidTimestamp)
-		{
-			dateOrMilliseconds = Math.max(dateOrMilliseconds, 0);
-		}
 
-		dateOrMilliseconds = (timezone.isUnixTimestampSeconds ? dayjs.unix : dayjs)(dateOrMilliseconds);
-	}
-
-	return dayjs.tz(dateOrMilliseconds ?? void 0, timezone.timezone ?? void 0)
+		return dayjs.tz(dateOrMilliseconds ?? void 0, timezone.timezone ?? void 0)
 }
 
 export function secondsToMilliseconds(timestamp: number)
