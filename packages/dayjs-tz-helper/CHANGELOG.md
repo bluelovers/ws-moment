@@ -3,6 +3,16 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.0.6](https://github.com/bluelovers/ws-moment/compare/dayjs-tz-helper@1.0.5...dayjs-tz-helper@1.0.6) (2024-02-16)
+
+
+
+### ✨　Features
+
+* parse number string ([232e428](https://github.com/bluelovers/ws-moment/commit/232e4288486e1e955d8f45da6af21abd325e7293))
+
+
+
 ## [1.0.5](https://github.com/bluelovers/ws-moment/compare/dayjs-tz-helper@1.0.4...dayjs-tz-helper@1.0.5) (2024-02-15)
 
 
