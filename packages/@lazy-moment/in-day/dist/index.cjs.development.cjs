@@ -33,6 +33,7 @@ function firstEndOfMonth(m, momentStatic = moment) {
     endDayOfMonth
   };
 }
+// @ts-ignore
 {
   Object.defineProperty(lnMoment, "__esModule", {
     value: true

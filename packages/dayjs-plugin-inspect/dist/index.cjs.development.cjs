@@ -3,6 +3,7 @@
 var dayjs = require('dayjs');
 
 const dayjsInspectPlugin = (option, dayjsClass, dayjsFactory) => {
+  // @ts-ignore
   dayjsClass.prototype[Symbol.for('nodejs.util.inspect.custom')] = function () {
     return `Dayjs<${this.format()}>`;
   };
@@ -10,6 +11,7 @@ const dayjsInspectPlugin = (option, dayjsClass, dayjsFactory) => {
 function install() {
   return dayjs.extend(dayjsInspectPlugin);
 }
+// @ts-ignore
 {
   Object.defineProperty(dayjsInspectPlugin, "__esModule", {
     value: true

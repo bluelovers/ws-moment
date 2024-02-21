@@ -5,6 +5,8 @@ var utc = require('dayjs/plugin/utc');
 var timezone = require('dayjs/plugin/timezone');
 var parseNumberString = require('@lazy-num/parse-number-string');
 
+/// <reference types="dayjs/plugin/timezone.d.ts" />
+/// <reference types="dayjs/plugin/utc.d.ts" />
 dayjs.extend(utc);
 dayjs.extend(timezone);
 function _isUnsafeOffsetDateString(date) {

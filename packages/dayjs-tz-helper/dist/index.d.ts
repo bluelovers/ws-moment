@@ -1,3 +1,6 @@
+/// <reference types="dayjs/plugin/timezone.d.ts" />
+/// <reference types="dayjs/plugin/utc.d.ts" />
+
 import dayjs from 'dayjs';
 import { ConfigType } from 'dayjs';
 
@@ -57,7 +60,7 @@ export interface IOptionsTzDayjsSafeParse {
  * @see https://day.js.org/docs/en/timezone/timezone
  * @see https://en.wikipedia.org/wiki/List_of_tz_database_time_zones
  */
-export declare function tzDayjsSafeParse(dateOrMilliseconds?: ConfigType, timezone?: ITimezone | IOptionsTzDayjsSafeParse): dayjs.Dayjs;
+export declare function tzDayjsSafeParse(dateOrMilliseconds?: dayjs.ConfigType, timezone?: ITimezone | IOptionsTzDayjsSafeParse): dayjs.Dayjs;
 export declare function secondsToMilliseconds(timestamp: number): number;
 export declare function millisecondsToSeconds(timestamp: number): number;
 

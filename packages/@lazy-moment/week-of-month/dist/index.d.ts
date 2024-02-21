@@ -1,8 +1,6 @@
-import { DateRange } from '@lazy-moment/moment-range';
-import MomentStatic from 'moment';
+import { DateRange, IMomentStatic } from '@lazy-moment/moment-range';
 import { LocaleSpecifier, Moment, MomentInput } from 'moment';
 
-export type IMomentStatic = typeof MomentStatic;
 export interface IReturnTypeWeeksOfMonth {
 	year: number;
 	month: number;

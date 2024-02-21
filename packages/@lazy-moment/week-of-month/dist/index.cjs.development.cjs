@@ -76,6 +76,7 @@ function getWeekDayNames(locale = 'zh-tw', momentStatic = _moment) {
     return m.day(i).format(`dddd`);
   });
 }
+// @ts-ignore
 {
   Object.defineProperty(weeksOfMonth, "__esModule", {
     value: true

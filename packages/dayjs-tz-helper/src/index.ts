@@ -1,3 +1,6 @@
+/// <reference types="dayjs/plugin/timezone.d.ts" />
+/// <reference types="dayjs/plugin/utc.d.ts" />
+
 import dayjs, { type ConfigType } from 'dayjs';
 import utc from 'dayjs/plugin/utc';
 import timezone from 'dayjs/plugin/timezone';
