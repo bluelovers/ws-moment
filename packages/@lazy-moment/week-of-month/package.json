@@ -1,6 +1,6 @@
 {
   "name": "@lazy-moment/week-of-month",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "",
   "keywords": [
     "moment",
@@ -70,8 +70,8 @@
     "tsc:showConfig": "ynpx get-current-tsconfig -p"
   },
   "dependencies": {
-    "@lazy-moment/in-day": "^1.0.2",
-    "@lazy-moment/moment-range": "^1.0.3"
+    "@lazy-moment/in-day": "^1.0.3",
+    "@lazy-moment/moment-range": "^1.0.4"
   },
   "packageManager": "yarn@1.22.19",
   "publishConfig": {

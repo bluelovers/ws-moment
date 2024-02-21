@@ -3,6 +3,16 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.0.4](https://github.com/bluelovers/ws-moment/compare/@lazy-moment/moment-range@1.0.3...@lazy-moment/moment-range@1.0.4) (2024-02-21)
+
+
+
+### 🛠　Build System
+
+* update build ([cb86918](https://github.com/bluelovers/ws-moment/commit/cb86918e31b43fa29323eb64403f6d01a19471cf))
+
+
+
 ## [1.0.3](https://github.com/bluelovers/ws-moment/compare/@lazy-moment/moment-range@1.0.2...@lazy-moment/moment-range@1.0.3) (2023-01-14)
 
 
